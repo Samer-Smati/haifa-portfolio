@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0f0a12;
-  --foreground: #ededed;
-  --accent-primary: #d946ef;
-  --accent-secondary: #14b8a6;
-  --accent-tertiary: #fb7185;
+  --background: #0b1120;
+  --foreground: #e2e8f0;
+  --accent-primary: #2563eb;
+  --accent-secondary: #0ea5e9;
+  --accent-tertiary: #6366f1;
+  --surface: #0f172a;
+  --surface-elevated: #111827;
 }
 
 @theme inline {
@@ -27,14 +29,14 @@ body {
 
 .hero-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
 }
 
 ::selection {
-  background: rgba(217, 70, 239, 0.4);
+  background: rgba(37, 99, 235, 0.35);
   color: white;
 }
 
@@ -43,14 +45,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f0a12;
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #334155;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #475569;
 }

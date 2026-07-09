@@ -1,25 +1,28 @@
 "use client";
 
-import { featuredProjects } from "@/data/projects";
+import { useLocale } from "@/context/LocaleProvider";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TechChip } from "@/components/ui/TechChip";
 import { motion } from "framer-motion";
 
 const typeStyles: Record<string, string> = {
-  Professional: "bg-teal-500/15 text-teal-300",
-  "Open Source": "bg-teal-500/15 text-teal-300",
-  "Live Demo": "bg-fuchsia-500/15 text-fuchsia-300",
+  Professional: "bg-sky-500/15 text-sky-300",
+  "Open Source": "bg-sky-500/15 text-sky-300",
+  "Live Demo": "bg-blue-500/15 text-blue-300",
 };
 
 export function Projects() {
+  const { content } = useLocale();
+  const { sections, featuredProjects } = content;
+
   return (
     <section id="projects" className="px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          label="Projects"
-          title="Selected Work"
-          description="Enterprise ERP/CRM, chatbot solutions, health platforms, and backend services — built with Java, Angular, and modern full-stack tools."
+          label={sections.projects.label}
+          title={sections.projects.title}
+          description={sections.projects.description}
         />
 
         <div className="grid gap-6 md:grid-cols-2">
@@ -32,7 +35,7 @@ export function Projects() {
               <motion.article
                 className={`group flex h-full flex-col rounded-2xl border p-6 transition-all md:p-8 ${
                   project.featured
-                    ? "border-fuchsia-500/20 bg-fuchsia-500/[0.04] hover:border-fuchsia-500/40"
+                    ? "border-blue-500/20 bg-blue-500/[0.04] hover:border-blue-500/40"
                     : "border-white/10 bg-white/[0.02] hover:border-white/20"
                 }`}
                 whileHover={{ y: -4 }}
@@ -41,7 +44,7 @@ export function Projects() {
                   <span
                     className={`rounded-full px-3 py-0.5 text-xs font-medium ${typeStyles[project.type] ?? "bg-white/5 text-zinc-400"}`}
                   >
-                    {project.type}
+                    {project.typeLabel}
                   </span>
                   <span className="rounded-full bg-white/5 px-3 py-0.5 text-xs text-zinc-500">
                     {project.category}
@@ -51,7 +54,7 @@ export function Projects() {
                   ) : null}
                 </div>
 
-                <h3 className="mb-2 text-xl font-bold text-white group-hover:text-fuchsia-300">
+                <h3 className="mb-2 text-xl font-bold text-white group-hover:text-blue-300">
                   {project.title}
                 </h3>
                 <p className="mb-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">
@@ -62,7 +65,7 @@ export function Projects() {
                   {project.metrics.map((metric) => (
                     <span
                       key={metric}
-                      className="rounded-full border border-teal-500/20 bg-teal-500/10 px-2.5 py-0.5 text-xs font-medium text-teal-300"
+                      className="rounded-full border border-sky-500/20 bg-sky-500/10 px-2.5 py-0.5 text-xs font-medium text-sky-300"
                     >
                       {metric}
                     </span>
@@ -75,7 +78,7 @@ export function Projects() {
                       key={highlight}
                       className="flex gap-2 text-xs text-zinc-500 md:text-sm"
                     >
-                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-fuchsia-400" />
+                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-blue-400" />
                       {highlight}
                     </li>
                   ))}
@@ -100,7 +103,7 @@ export function Projects() {
                           ? "noopener noreferrer"
                           : undefined
                       }
-                      className="text-sm font-semibold text-fuchsia-400 transition-colors hover:text-teal-400"
+                      className="text-sm font-semibold text-blue-400 transition-colors hover:text-sky-400"
                     >
                       {link.label} →
                     </a>

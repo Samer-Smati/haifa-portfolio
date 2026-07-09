@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
+import { Providers } from "@/components/Providers";
 import { JsonLd } from "@/components/seo/JsonLd";
 import "./globals.css";
 
@@ -16,7 +17,7 @@ const inter = Inter({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://haifa-portfolio.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://haifa-portfolio-seven.vercel.app";
 
 export const metadata: Metadata = {
   title: "Hayfa Talili — Product Owner / Product Manager",
@@ -72,10 +73,10 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body
-        className="min-h-full bg-[#0f0a12] antialiased"
+        className="min-h-full bg-[var(--background)] antialiased"
         suppressHydrationWarning
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

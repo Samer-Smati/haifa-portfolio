@@ -19,7 +19,7 @@ export function SectionHeading({
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-400"
+        className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-blue-400"
       >
         {label}
       </motion.p>
@@ -30,7 +30,7 @@ export function SectionHeading({
         transition={{ delay: 0.1 }}
         className="font-[family-name:var(--font-space-grotesk)] text-3xl font-bold text-white md:text-4xl lg:text-5xl"
       >
-        <span className="bg-gradient-to-r from-fuchsia-400 via-teal-400 to-rose-400 bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-blue-400 via-sky-400 to-indigo-400 bg-clip-text text-transparent">
           {title}
         </span>
       </motion.h2>

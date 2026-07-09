@@ -1,51 +1,28 @@
 "use client";
 
-import { skills } from "@/data/cv";
+import { useLocale } from "@/context/LocaleProvider";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TechChip } from "@/components/ui/TechChip";
 
-const skillGroups = [
-  {
-    title: "Product Management",
-    description: "Agile delivery, backlog, roadmaps, and stakeholder alignment",
-    items: skills.product,
-    accent: "fuchsia",
-  },
-  {
-    title: "Analytics & Data",
-    description: "BI tools, analytics, SQL, and KPI-driven product decisions",
-    items: skills.data,
-    accent: "teal",
-  },
-  {
-    title: "Technical Foundation",
-    description: "Development background for effective tech collaboration",
-    items: skills.technical,
-    accent: "rose",
-  },
-  {
-    title: "Tools & Platforms",
-    description: "Design, modeling, and collaboration tooling",
-    items: skills.tools,
-    accent: "teal",
-  },
-];
-
 const accentBorder: Record<string, string> = {
-  fuchsia: "hover:border-fuchsia-500/30 hover:bg-fuchsia-500/5",
-  teal: "hover:border-teal-500/30 hover:bg-teal-500/5",
-  rose: "hover:border-rose-500/30 hover:bg-rose-500/5",
+  blue: "hover:border-blue-500/30 hover:bg-blue-500/5",
+  sky: "hover:border-sky-500/30 hover:bg-sky-500/5",
+  indigo: "hover:border-indigo-500/30 hover:bg-indigo-500/5",
+  slate: "hover:border-slate-500/30 hover:bg-slate-500/5",
 };
 
 export function Skills() {
+  const { content } = useLocale();
+  const { sections, skillGroups, skills } = content;
+
   return (
     <section id="skills" className="px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          label="Skills"
-          title="Product & Technical Toolkit"
-          description="Agile product management, analytics, Jira, Figma, and data-informed delivery."
+          label={sections.skills.label}
+          title={sections.skills.title}
+          description={sections.skills.description}
         />
         <div className="grid gap-6 md:grid-cols-2">
           {skillGroups.map((group, groupIndex) => (
@@ -58,7 +35,7 @@ export function Skills() {
                 </h3>
                 <p className="mb-4 text-sm text-zinc-500">{group.description}</p>
                 <div className="flex flex-wrap gap-2">
-                  {group.items.map((item, index) => (
+                  {skills[group.itemsKey].map((item, index) => (
                     <TechChip key={item} label={item} index={index} />
                   ))}
                 </div>

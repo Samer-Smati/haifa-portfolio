@@ -134,7 +134,7 @@ export const featuredProjects: FeaturedProject[] = [
         label: "Live Site",
         url:
           process.env.NEXT_PUBLIC_SITE_URL ??
-          "https://haifa-portfolio.vercel.app",
+          "https://haifa-portfolio-seven.vercel.app",
       },
     ],
   },
