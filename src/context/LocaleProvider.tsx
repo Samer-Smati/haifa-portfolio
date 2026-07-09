@@ -18,11 +18,13 @@ import {
   useState,
 } from "react";
 
+type PersonalWithCv = typeof personalStatic & { cvUrl: string };
+
 type LocaleContextValue = {
   locale: Locale;
   setLocale: (locale: Locale) => void;
   content: SiteContent;
-  personal: typeof personalStatic;
+  personal: PersonalWithCv;
 };
 
 const LocaleContext = createContext<LocaleContextValue | null>(null);
@@ -49,15 +51,15 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     setLocaleState(next);
   }, []);
 
-  const value = useMemo<LocaleContextValue>(
-    () => ({
+  const value = useMemo<LocaleContextValue>(() => {
+    const content = getContent(locale);
+    return {
       locale,
       setLocale,
-      content: getContent(locale),
-      personal: personalStatic,
-    }),
-    [locale, setLocale],
-  );
+      content,
+      personal: { ...personalStatic, cvUrl: content.cvUrl },
+    };
+  }, [locale, setLocale]);
 
   return (
     <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>

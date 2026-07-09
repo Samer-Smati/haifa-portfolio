@@ -3,6 +3,7 @@ export type Locale = "en" | "fr";
 export type ProjectType = "Professional" | "Open Source" | "Live Demo";
 
 export type SiteContent = {
+  cvUrl: string;
   ui: {
     callMe: string;
     emailMe: string;

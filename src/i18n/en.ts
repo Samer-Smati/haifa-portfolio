@@ -1,6 +1,7 @@
 import type { SiteContent } from "./types";
 
 export const en: SiteContent = {
+  cvUrl: "/Hayfa_Talili_CV_EN.pdf",
   ui: {
     callMe: "Call Me",
     emailMe: "Email Me",

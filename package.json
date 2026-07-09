@@ -10,6 +10,7 @@
     "optimize:profile": "node scripts/optimize-profile.mjs",
     "resume:extract": "node scripts/extract-jobsuit-html.mjs",
     "resume:pdf": "node scripts/jobsuit-to-pdf.mjs",
+    "cv:generate": "node scripts/generate-haifa-cv.mjs",
     "convocation:html": "node scripts/generate-convocation-html.mjs",
     "convocation:docx": "node scripts/convocation-html-to-docx.mjs",
     "convocation:build": "npm run convocation:html && npm run convocation:docx"
