@@ -2,6 +2,15 @@ import { contactSchema } from "@/lib/validations";
 import { Resend } from "resend";
 import { ZodError } from "zod";
 
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -28,10 +37,10 @@ export async function POST(request: Request) {
       subject: `Portfolio contact from ${data.name}`,
       html: `
         <h2>New message from your portfolio</h2>
-        <p><strong>Name:</strong> ${data.name}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
         <p><strong>Message:</strong></p>
-        <p>${data.message.replace(/\n/g, "<br>")}</p>
+        <p>${escapeHtml(data.message).replace(/\n/g, "<br>")}</p>
       `,
     });
 

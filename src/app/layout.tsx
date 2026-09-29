@@ -20,13 +20,16 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://haifa-portfolio-seven.vercel.app";
 
 export const metadata: Metadata = {
-  title: "Hayfa Talili — Product Owner / Product Manager",
+  title: "Hayfa Talili — Product Owner · Product Manager · Business Analyst",
   description:
-    "Product Owner with 3+ years managing digital products end-to-end — Agile/Scrum, backlog management, roadmaps, and KPI-driven delivery.",
+    "Product Owner with 3+ years managing digital products from discovery to production — functional specifications, backlog prioritization, Agile/Scrum delivery, and UAT.",
   keywords: [
     "Hayfa Talili",
     "Product Owner Tunisia",
     "Product Manager",
+    "Business Analyst",
+    "Functional Analysis",
+    "UAT",
     "Agile Scrum",
     "Jira",
     "Product Backlog",
@@ -39,9 +42,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   alternates: { canonical: siteUrl },
   openGraph: {
-    title: "Hayfa Talili — Product Owner / Product Manager",
+    title: "Hayfa Talili — Product Owner · Product Manager · Business Analyst",
     description:
-      "3+ years product ownership. Agile, Scrum, roadmaps, user stories, and stakeholder alignment.",
+      "3+ years of product ownership — discovery, functional specs, user stories, Agile/Scrum delivery, and UAT.",
     url: siteUrl,
     siteName: "Hayfa Talili Portfolio",
     locale: "en_US",
@@ -50,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hayfa Talili — Product Owner / Product Manager",
+    title: "Hayfa Talili — Product Owner · Product Manager · Business Analyst",
     description:
-      "Product Owner with Agile/Scrum expertise — discovery to production delivery.",
+      "Product Owner & Business Analyst — Agile/Scrum delivery from discovery to production.",
     images: ["/images/haifa-profile.png"],
   },
   robots: { index: true, follow: true },

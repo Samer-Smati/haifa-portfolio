@@ -9,6 +9,9 @@ const accentBorder: Record<string, string> = {
   blue: "hover:border-blue-500/30 hover:bg-blue-500/5",
   sky: "hover:border-sky-500/30 hover:bg-sky-500/5",
   indigo: "hover:border-indigo-500/30 hover:bg-indigo-500/5",
+  cyan: "hover:border-cyan-500/30 hover:bg-cyan-500/5",
+  violet: "hover:border-violet-500/30 hover:bg-violet-500/5",
+  emerald: "hover:border-emerald-500/30 hover:bg-emerald-500/5",
   slate: "hover:border-slate-500/30 hover:bg-slate-500/5",
 };
 
@@ -24,9 +27,19 @@ export function Skills() {
           title={sections.skills.title}
           description={sections.skills.description}
         />
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group, groupIndex) => (
-            <ScrollReveal key={group.title} delay={groupIndex * 0.08} className="h-full">
+            <ScrollReveal
+              key={group.title}
+              delay={groupIndex * 0.08}
+              className={`h-full ${
+                groupIndex === 0
+                  ? "md:col-span-2"
+                  : groupIndex === skillGroups.length - 1
+                    ? "lg:col-span-2"
+                    : ""
+              }`}
+            >
               <div
                 className={`h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors ${accentBorder[group.accent]}`}
               >
