@@ -2,6 +2,15 @@ export type Locale = "en" | "fr";
 
 export type ProjectType = "Professional" | "Open Source" | "Live Demo";
 
+export type SkillKey =
+  | "product"
+  | "analysis"
+  | "agile"
+  | "quality"
+  | "data"
+  | "ux"
+  | "tools";
+
 export type SiteContent = {
   cvUrl: string;
   ui: {
@@ -43,6 +52,9 @@ export type SiteContent = {
     languagesLabel: string;
     linkedinProfile: string;
     callPhone: string;
+    environment: string;
+    showMore: string;
+    showLess: string;
   };
   sections: {
     about: { label: string; title: string; description: string };
@@ -80,17 +92,12 @@ export type SiteContent = {
   industries: string[];
   expertise: { title: string; description: string; icon: string }[];
   stats: { value: string; label: string }[];
-  skills: {
-    product: string[];
-    data: string[];
-    technical: string[];
-    tools: string[];
-  };
+  skills: Record<SkillKey, string[]>;
   skillGroups: {
     title: string;
     description: string;
-    accent: "blue" | "sky" | "indigo" | "slate";
-    itemsKey: "product" | "data" | "technical" | "tools";
+    accent: "blue" | "sky" | "indigo" | "cyan" | "violet" | "emerald" | "slate";
+    itemsKey: SkillKey;
   }[];
   experiences: {
     company: string;

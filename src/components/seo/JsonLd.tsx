@@ -14,6 +14,9 @@ export function JsonLd() {
     knowsLanguage: ["Arabic", "French", "English"],
     knowsAbout: [
       "Product Management",
+      "Business Analysis",
+      "Functional Specifications",
+      "User Acceptance Testing",
       "Agile",
       "Scrum",
       "Product Backlog",
@@ -21,6 +24,8 @@ export function JsonLd() {
       "Jira",
       "User Stories",
       "KPI Tracking",
+      "Power BI",
+      "SQL",
     ],
     workLocation: {
       "@type": "Place",
